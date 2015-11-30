@@ -1,0 +1,24 @@
+{% macro recursive_nav(entries, depth, wrapUl) %}
+{% import _self as self %}
+{% if wrapUl %}
+  <ul class="level{{ depth}}">
+{% endif %}
+    {% for entry in entries %}
+          <li>
+            <a href="{{ entry.url }}">{{ entry.title }}</a>
+            {% if entry.hasDescendants %}
+              {{ self.recursive_nav(entry.children, depth+1, true) }}
+            {% endif %}
+          </li>			
+    {% endfor %}
+{% if wrapUl %}
+  </ul> 
+{% endif %}
+{% endmacro %} 
+
+{% import _self as self %}
+
+{% set navEntries = craft.entries.section(sectionHandle).level(1) %}
+<ul class="level1">
+    {{ self.recursive_nav(navEntries, 1, false) }}
+</ul>
