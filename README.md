@@ -1,5 +1,5 @@
 # Navigation Function and Twig Filter Plugin for Craft CMS
-One solution too handle all (nearly ;-)) navigation needs in Craft CMS.
+One solution to handle all (nearly ;-)) navigation needs in Craft CMS.
 
 ## Features
 Twig filters and functions for simple and advanced navigations in Craft CMS:
